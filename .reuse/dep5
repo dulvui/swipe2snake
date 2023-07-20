@@ -12,3 +12,8 @@ License: AGPL-3.0-or-later
 Files: game/icon.png
 Copyright: 2023 Simon Dalvai <info@simondalvai.com>
 License: CC-BY-SA-4.0
+
+# config files
+Files: version-android version-ios
+Copyright: 2023 Simon Dalvai <info@simondalvai.com>
+License: CC0-1.0
