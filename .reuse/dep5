@@ -3,7 +3,12 @@ Upstream-Name: Swipe2Snake
 Upstream-Contact: Simon Dalvai <info@simondalvai.com>
 Source: https://simondalvai.com/games/swipe2snake
 
-# Godot scene files
-Files: game/src/**.tscn
+# Godot files
+Files: game/src/**.tscn game/project.godot game/**.import
 Copyright: 2023 Simon Dalvai <info@simondalvai.com>
 License: AGPL-3.0-or-later
+
+# Images
+Files: game/icon.png
+Copyright: 2023 Simon Dalvai <info@simondalvai.com>
+License: CC-BY-SA-4.0

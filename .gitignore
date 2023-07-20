@@ -1,8 +1,14 @@
+# SPDX-FileCopyrightText: 2023 Simon Dalvai <info@simondalvai.com>
+
+# SPDX-License-Identifier: CC0-1.0
+
+# Swipe2Snake
+
 # Godot-specific ignores
 game/.import/
 game/export.cfg
 game/export_presets.cfg
-export_presets-ga.cfg
+game/.godot/
 
 
 # Imported translations (automatically generated from CSV files)
@@ -20,7 +26,6 @@ game/data_*/
 
 game/android/
 *.aar
-/home/dulvui/dev/godot/ball2box/game/android/build/.gradle
 game/android/build/local.properties
 game/android/build/build/
 game/android/build/keystore.properties
