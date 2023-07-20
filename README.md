@@ -11,3 +11,23 @@ SPDX-License-Identifier: CC0-1.0
 
 A Godot port of my libGDX game Snake https://github.com/dulvui/sn4ke
 
+
+Made with [Godot Engine](https://godotengine.org) version 4.1.0
+
+## Table of contents
+
+- [Swipe2Snake](#swipe2snake)
+  - [Table of contents](#table-of-contents)
+  - [Setup](#setup)
+  - [Contributions](#contributions)
+
+## Setup
+Get the latest version of the Godot Engine editor and check out the  
+repo. Then open the `game/project.godot` file with the editor.
+
+For further instructions, like exporting to mobile, please read the official [Godot Docs](https://docs.godotengine.org/en/stable/).
+
+## Contributions
+If you want to contribute to the project, please fork the repo,    
+make your changes and make a pull request with a short description  
+of the changes you made.
