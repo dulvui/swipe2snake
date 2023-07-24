@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://glbow07uipfj"]
+[gd_scene load_steps=3 format=3 uid="uid://glbow07uipfj"]
 
-[ext_resource type="Texture2D" uid="uid://dwwqnpyrv4m26" path="res://assets/images/block.png" id="1_2b64r"]
+[ext_resource type="PackedScene" uid="uid://bru3upbpeya61" path="res://src/actors/snake/Block.tscn" id="1_swcrd"]
+[ext_resource type="Script" path="res://src/actors/snake/Snake.gd" id="1_xp3uq"]
 
 [node name="Snake" type="Node2D"]
+script = ExtResource("1_xp3uq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2b64r")
+[node name="Head" parent="." instance=ExtResource("1_swcrd")]
