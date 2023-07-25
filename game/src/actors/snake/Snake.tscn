@@ -1,9 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://glbow07uipfj"]
 
+[ext_resource type="PackedScene" uid="uid://bru3upbpeya61" path="res://src/actors/snake/block/Block.tscn" id="1_swcrd"]
 [ext_resource type="Script" path="res://src/actors/snake/Snake.gd" id="1_xp3uq"]
-[ext_resource type="PackedScene" uid="uid://bk6naygbvr13t" path="res://src/actors/snake/head/Head.tscn" id="2_rymvs"]
 
 [node name="Snake" type="Node2D"]
 script = ExtResource("1_xp3uq")
 
-[node name="Head" parent="." instance=ExtResource("2_rymvs")]
+[node name="Head" parent="." instance=ExtResource("1_swcrd")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

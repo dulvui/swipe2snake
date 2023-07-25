@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bru3upbpeya61"]
+[gd_scene load_steps=4 format=3 uid="uid://bru3upbpeya61"]
 
 [ext_resource type="Texture2D" uid="uid://dwwqnpyrv4m26" path="res://assets/images/block.png" id="1_mwh7g"]
 [ext_resource type="Script" path="res://src/actors/snake/block/Block.gd" id="2_2nqej"]
 
-[node name="Block" type="Sprite2D"]
-texture = ExtResource("1_mwh7g")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4p3p"]
+size = Vector2(64, 64)
+
+[node name="Block" type="Node2D"]
 script = ExtResource("2_2nqej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mwh7g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b4p3p")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
