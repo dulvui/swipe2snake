@@ -4,11 +4,13 @@
 [ext_resource type="Script" path="res://src/actors/snake/Snake.gd" id="1_xp3uq"]
 
 [node name="Snake" type="Node2D"]
+position = Vector2(224, 224)
 script = ExtResource("1_xp3uq")
 
 [node name="Head" parent="." instance=ExtResource("1_swcrd")]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

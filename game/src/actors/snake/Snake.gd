@@ -8,6 +8,8 @@ enum DIRECTION {UP, DOWN, NONE, LEFT, RIGHT}
 
 const SIZE:int = 64
 
+@onready var timer = $Timer 
+
 var direction:int = DIRECTION.NONE
 var direction_buffer:Array = []
 
@@ -37,13 +39,13 @@ func _move() -> void:
 	# actually move
 	match direction:
 		DIRECTION.UP:
-			tween.tween_property(self, "position", position + Vector2(0,-SIZE), 1)
+			tween.tween_property(self, "position", position + Vector2(0,-SIZE), timer.wait_time)
 		DIRECTION.DOWN:
-			tween.tween_property(self, "position", position + Vector2(0,SIZE), 1)
+			tween.tween_property(self, "position", position + Vector2(0,SIZE), timer.wait_time)
 		DIRECTION.LEFT:
-			tween.tween_property(self, "position", position + Vector2(-SIZE,0), 1)
+			tween.tween_property(self, "position", position + Vector2(-SIZE,0), timer.wait_time)
 		DIRECTION.RIGHT:
-			tween.tween_property(self, "position", position + Vector2(SIZE,0), 1)
+			tween.tween_property(self, "position", position + Vector2(SIZE,0), timer.wait_time)
 		_:
 			pass
 	
@@ -54,6 +56,9 @@ func _add_to_buffer(new_direction:int) -> void:
 	
 
 func _is_valid_direction(new_direction:int) -> bool:
+	if direction == DIRECTION.NONE:
+		return true
+
 	# up = 0, down = 1, none = 2, left = 3, right = 4
 	# up - down = -1
 	# down - up = 1
