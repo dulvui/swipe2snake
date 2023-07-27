@@ -8,7 +8,16 @@ enum DIRECTION {UP, DOWN, NONE, LEFT, RIGHT}
 
 const SIZE:int = 64
 
-func move(direction:int, time:float) -> void:
+var direction:int
+
+var wait_one_move:bool = true
+
+func move(new_direction:int, time:float) -> void:
+	if wait_one_move:
+		wait_one_move = false
+		return
+
+	direction = new_direction
 	# create and configure tween
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)

@@ -8,6 +8,7 @@ position = Vector2(224, 224)
 script = ExtResource("1_xp3uq")
 
 [node name="Head" parent="." instance=ExtResource("1_swcrd")]
+self_modulate = Color(0.32549, 0.0196078, 0.192157, 1)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
