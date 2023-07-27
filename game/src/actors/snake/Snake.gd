@@ -4,14 +4,24 @@
 
 extends Node2D
 
+const Block:PackedScene = preload("res://src/actors/snake/block/Block.tscn")
+
 enum DIRECTION {UP, DOWN, NONE, LEFT, RIGHT}
 
-const SIZE:int = 64
-
 @onready var timer = $Timer 
+@onready var head = $Head 
+
 
 var direction:int = DIRECTION.NONE
 var direction_buffer:Array = []
+
+var body:Array = []
+
+func grow():
+	var block:Node2D = Block.instantiate()
+	block.position = position
+	body.append(block)
+	add_child(block)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_up"):
@@ -24,31 +34,28 @@ func _input(event: InputEvent) -> void:
 		_add_to_buffer(DIRECTION.RIGHT)
 
 func _on_timer_timeout() -> void:
-	_move()
+	_move_body()
+	_move_head()
+	
 
-func _move() -> void:
+func _move_head() -> void:
 	# check buffer for new direction
 	if not direction_buffer.is_empty():
 		direction = direction_buffer.pop_front()
 	
-	# create and configure tween
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN)
-	tween.set_trans(Tween.TRANS_CUBIC)
+	head.move(direction, timer.wait_time)
+
+			
+func _move_body() -> void:
+	if body.size() == 0:
+		return
+
+	body[0].move(direction, timer.wait_time)
 	
-	# actually move
-	match direction:
-		DIRECTION.UP:
-			tween.tween_property(self, "position", position + Vector2(0,-SIZE), timer.wait_time)
-		DIRECTION.DOWN:
-			tween.tween_property(self, "position", position + Vector2(0,SIZE), timer.wait_time)
-		DIRECTION.LEFT:
-			tween.tween_property(self, "position", position + Vector2(-SIZE,0), timer.wait_time)
-		DIRECTION.RIGHT:
-			tween.tween_property(self, "position", position + Vector2(SIZE,0), timer.wait_time)
-		_:
-			pass
-	
+	var i = 1
+	while i < body.size():
+		body[i].move(body[i - 1].direction, timer.wait_time)
+
 
 func _add_to_buffer(new_direction:int) -> void:
 	if _is_valid_direction(new_direction):

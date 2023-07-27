@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d121pa8df4mov"]
+
+[ext_resource type="Script" path="res://src/actors/apple/Apple.gd" id="1_jo0sc"]
+[ext_resource type="Texture2D" uid="uid://dwwqnpyrv4m26" path="res://assets/images/block.png" id="1_wf07j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0s7c"]
+size = Vector2(32, 32)
+
+[node name="Apple" type="Node2D"]
+script = ExtResource("1_jo0sc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wf07j")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_a0s7c")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
