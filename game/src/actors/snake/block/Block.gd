@@ -16,6 +16,10 @@ func move(new_direction:int, time:float) -> void:
 	if wait_one_move:
 		wait_one_move = false
 		return
+	
+	# finish tween slighty before next timeout
+	# so blocks remain aligned 
+	time -= 0.1
 
 	direction = new_direction
 	# create and configure tween
