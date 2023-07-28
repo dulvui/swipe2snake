@@ -15,6 +15,10 @@ run/main_scene="res://src/levels/BaseLevel.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.png"
 
+[autoload]
+
+Constants="*res://src/Constants.gd"
+
 [display]
 
 window/size/viewport_width=540

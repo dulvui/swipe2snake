@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://tqo1ou8bo1ev"]
+[gd_scene load_steps=2 format=3 uid="uid://tqo1ou8bo1ev"]
+
+[ext_resource type="Script" path="res://src/background/Background.gd" id="1_1xiap"]
 
 [node name="Background" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1xiap")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

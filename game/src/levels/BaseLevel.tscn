@@ -39,5 +39,10 @@ position = Vector2(352, 192)
 [node name="Snake" parent="Actors" instance=ExtResource("3_wcuu4")]
 position = Vector2(384, 448)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="eaten" from="Actors/Apple" to="." method="_on_apple_eaten"]
 [connection signal="eaten" from="Actors/Apple2" to="." method="_on_apple_eaten"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

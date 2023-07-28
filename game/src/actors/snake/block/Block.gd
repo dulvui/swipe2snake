@@ -4,8 +4,6 @@
 
 extends Node2D
 
-enum DIRECTION {UP, DOWN, NONE, LEFT, RIGHT}
-
 const SIZE:int = 64
 
 var direction:int
@@ -29,13 +27,13 @@ func move(new_direction:int, time:float) -> void:
 	
 	# actually move
 	match direction:
-		DIRECTION.UP:
+		Constants.DIRECTION.UP:
 			tween.tween_property(self, "position", position + Vector2(0,-SIZE), time)
-		DIRECTION.DOWN:
+		Constants.DIRECTION.DOWN:
 			tween.tween_property(self, "position", position + Vector2(0,SIZE), time)
-		DIRECTION.LEFT:
+		Constants.DIRECTION.LEFT:
 			tween.tween_property(self, "position", position + Vector2(-SIZE,0), time)
-		DIRECTION.RIGHT:
+		Constants.DIRECTION.RIGHT:
 			tween.tween_property(self, "position", position + Vector2(SIZE,0), time)
 		_:
 			pass

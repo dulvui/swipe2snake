@@ -6,13 +6,23 @@ extends Node
 
 @onready var points_label = $UI/Points
 @onready var snake = $Actors/Snake
+@onready var background = $UI/Background
+@onready var timer = $Timer
 
 var points:int = 0
 
+func _ready() -> void:
+	snake.wait_time = timer.wait_time
 
+
+func _on_timer_timeout() -> void:
+	snake.update()
+	background.update(snake.direction)
 
 func _on_apple_eaten() -> void:
 	points += 1
 	points_label.text = str(points)
 	
 	snake.grow()
+
+
