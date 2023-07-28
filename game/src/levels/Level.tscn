@@ -23,7 +23,7 @@ position = Vector2(224, 352)
 position = Vector2(160, 480)
 
 [node name="Apple5" parent="." instance=ExtResource("2_thv0f")]
-position = Vector2(448, 672)
+position = Vector2(480, 544)
 
 [node name="Points" type="Label" parent="."]
 offset_left = 96.0
