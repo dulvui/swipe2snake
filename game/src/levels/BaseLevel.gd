@@ -2,10 +2,10 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-extends Node2D
+extends Node
 
-@onready var points_label = $Points
-@onready var snake = $Snake
+@onready var points_label = $UI/Points
+@onready var snake = $Actors/Snake
 
 var points:int = 0
 

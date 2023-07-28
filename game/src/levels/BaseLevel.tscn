@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://lwahmc1ja651"]
+
+[ext_resource type="PackedScene" uid="uid://tqo1ou8bo1ev" path="res://src/background/Background.tscn" id="1_0ybin"]
+[ext_resource type="Script" path="res://src/levels/BaseLevel.gd" id="1_s4ewt"]
+[ext_resource type="PackedScene" uid="uid://d121pa8df4mov" path="res://src/actors/apple/Apple.tscn" id="2_a0ovu"]
+[ext_resource type="PackedScene" uid="uid://glbow07uipfj" path="res://src/actors/snake/Snake.tscn" id="3_wcuu4"]
+
+[node name="BaseLevel" type="Node"]
+script = ExtResource("1_s4ewt")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" parent="UI" instance=ExtResource("1_0ybin")]
+layout_mode = 1
+
+[node name="Points" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 544.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="Actors" type="Node2D" parent="."]
+
+[node name="Apple" parent="Actors" instance=ExtResource("2_a0ovu")]
+position = Vector2(128, 256)
+
+[node name="Apple2" parent="Actors" instance=ExtResource("2_a0ovu")]
+position = Vector2(352, 192)
+
+[node name="Snake" parent="Actors" instance=ExtResource("3_wcuu4")]
+position = Vector2(384, 448)
+
+[connection signal="eaten" from="Actors/Apple" to="." method="_on_apple_eaten"]
+[connection signal="eaten" from="Actors/Apple2" to="." method="_on_apple_eaten"]
