@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://tqo1ou8bo1ev"]
+[gd_scene load_steps=4 format=3 uid="uid://tqo1ou8bo1ev"]
 
 [ext_resource type="Script" path="res://src/background/Background.gd" id="1_1xiap"]
+[ext_resource type="PackedScene" uid="uid://d3h8s6rqakvy7" path="res://src/background/star/Star.tscn" id="2_alh40"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c42xx"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="Background" type="Control"]
+material = SubResource("CanvasItemMaterial_c42xx")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,4 +26,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.956863, 0.980392, 0.768627, 1)
+color = Color(0.910314, 0.294733, 0.284384, 1)
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Star" parent="Stars" instance=ExtResource("2_alh40")]
+position = Vector2(160, 256)

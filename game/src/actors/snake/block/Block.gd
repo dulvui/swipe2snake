@@ -27,13 +27,13 @@ func move(new_direction:int, time:float) -> void:
 	
 	# actually move
 	match direction:
-		Constants.DIRECTION.UP:
+		Global.DIRECTION.UP:
 			tween.tween_property(self, "position", position + Vector2(0,-SIZE), time)
-		Constants.DIRECTION.DOWN:
+		Global.DIRECTION.DOWN:
 			tween.tween_property(self, "position", position + Vector2(0,SIZE), time)
-		Constants.DIRECTION.LEFT:
+		Global.DIRECTION.LEFT:
 			tween.tween_property(self, "position", position + Vector2(-SIZE,0), time)
-		Constants.DIRECTION.RIGHT:
+		Global.DIRECTION.RIGHT:
 			tween.tween_property(self, "position", position + Vector2(SIZE,0), time)
 		_:
 			pass

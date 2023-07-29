@@ -4,15 +4,10 @@
 
 extends Control
 
-var direction:int = Constants.DIRECTION.NONE
 
 func _ready() -> void:
 	pass
 
-
 func _process(delta: float) -> void:
 	pass
 
-
-func update(direction:int) -> void:
-	pass

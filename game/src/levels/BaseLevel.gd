@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	snake.update()
-	background.update(snake.direction)
+#	background.update()
 
 func _on_apple_eaten() -> void:
 	points += 1

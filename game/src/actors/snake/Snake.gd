@@ -11,7 +11,6 @@ const Block:PackedScene = preload("res://src/actors/snake/block/Block.tscn")
 @onready var head = $Head 
 
 
-var direction:int = Constants.DIRECTION.NONE
 var direction_buffer:Array = []
 
 var is_growing = false
@@ -37,13 +36,13 @@ func grow():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_up"):
-		_add_to_buffer(Constants.DIRECTION.UP)
+		_add_to_buffer(Global.DIRECTION.UP)
 	elif event.is_action_pressed("move_down"):
-			_add_to_buffer(Constants.DIRECTION.DOWN)
+		_add_to_buffer(Global.DIRECTION.DOWN)
 	elif event.is_action_pressed("move_left"):
-		_add_to_buffer(Constants.DIRECTION.LEFT)
+		_add_to_buffer(Global.DIRECTION.LEFT)
 	elif event.is_action_pressed("move_right"):
-		_add_to_buffer(Constants.DIRECTION.RIGHT)
+		_add_to_buffer(Global.DIRECTION.RIGHT)
 	
 
 func _move() -> void:
@@ -54,13 +53,13 @@ func _move() -> void:
 			body[i].move(body[i - 1].direction, wait_time)
 			i -= 1
 		
-		body[0].move(direction, wait_time)
+		body[0].move(Global.direction, wait_time)
 	
 		# check buffer for new direction
 	if not direction_buffer.is_empty():
-		direction = direction_buffer.pop_front()
+		Global.direction = direction_buffer.pop_front()
 	
-	head.move(direction, wait_time)
+	head.move(Global.direction, wait_time)
 
 
 
@@ -70,7 +69,7 @@ func _add_to_buffer(new_direction:int) -> void:
 	
 
 func _is_valid_direction(new_direction:int) -> bool:
-	if direction == Constants.DIRECTION.NONE:
+	if Global.direction == Global.DIRECTION.NONE:
 		return true
 
 	# up = 0, down = 1, none = 2, left = 3, right = 4
@@ -79,5 +78,5 @@ func _is_valid_direction(new_direction:int) -> bool:
 	# down - down = 0
 	# => valid move is > 1
 	if direction_buffer.size() == 0:
-		return abs(new_direction - direction) > 1
+		return abs(new_direction - Global.direction) > 1
 	return abs(new_direction - direction_buffer[-1]) > 1

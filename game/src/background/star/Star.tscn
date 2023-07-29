@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3h8s6rqakvy7"]
+
+[ext_resource type="Script" path="res://src/background/star/Star.gd" id="1_8p1vn"]
+[ext_resource type="Texture2D" uid="uid://dwwqnpyrv4m26" path="res://assets/images/block.png" id="1_hrtl6"]
+
+[node name="Star" type="Node2D"]
+script = ExtResource("1_8p1vn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.501961, 0.921569, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hrtl6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-4.76837e-07, -5.68434e-14)
+scale = Vector2(3.7, 3.2)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
