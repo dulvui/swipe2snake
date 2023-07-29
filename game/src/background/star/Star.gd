@@ -36,17 +36,17 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 		emit_signal("exit_screen")
 		queue_free()
 	
-func set_random_position_inside_screen():
-	position = Vector2(randi_range(0, Global.WIDHT), randi_range(0, Global.HEIGHT))
-	
-func set_random_position_outside_screen():
-	match Global.direction:
-		Global.DIRECTION.UP, Global.DIRECTION.NONE:
-			position = Vector2(randi_range(0, Global.WIDHT), -OFFSET)
-		Global.DIRECTION.DOWN:
-			position = Vector2(randi_range(0, Global.WIDHT), Global.HEIGHT + OFFSET)
-		Global.DIRECTION.LEFT:
-			position = Vector2(0 - OFFSET, randi_range(0, Global.HEIGHT))
-		Global.DIRECTION.RIGHT:
-			position = Vector2(Global.WIDHT + OFFSET, randi_range(0, Global.HEIGHT))
+func set_random_position(inside_screen:bool=false) -> void:
+	if inside_screen:
+		position = Vector2(randi_range(0, Global.WIDHT), randi_range(0, Global.HEIGHT))
+	else:
+		match Global.direction:
+			Global.DIRECTION.UP, Global.DIRECTION.NONE:
+				position = Vector2(randi_range(0, Global.WIDHT), -OFFSET)
+			Global.DIRECTION.DOWN:
+				position = Vector2(randi_range(0, Global.WIDHT), Global.HEIGHT + OFFSET)
+			Global.DIRECTION.LEFT:
+				position = Vector2(0 - OFFSET, randi_range(0, Global.HEIGHT))
+			Global.DIRECTION.RIGHT:
+				position = Vector2(Global.WIDHT + OFFSET, randi_range(0, Global.HEIGHT))
 
