@@ -4,7 +4,7 @@
 
 extends Node2D
 
-const Block:PackedScene = preload("res://src/actors/snake/block/Block.tscn")
+const Body:PackedScene = preload("res://src/actors/snake/body/Body.tscn")
 
 
 @onready var timer = $Timer 
@@ -15,19 +15,19 @@ var direction_buffer:Array = []
 
 var is_growing = false
 
-var body:Array = []
+var bodies:Array = []
 
 var wait_time:float = 0
 
 func update() -> void:
 	if is_growing:
 		is_growing = false
-		var block:Node2D = Block.instantiate()
-		if body.size() > 0:
-			block.position = body[-1].position
+		var block:Node2D = Body.instantiate()
+		if bodies.size() > 0:
+			block.position = bodies[-1].position
 		else:
 			block.position = head.position
-		body.append(block)
+		bodies.append(block)
 		add_child(block)
 	_move()
 
@@ -46,14 +46,14 @@ func _input(event: InputEvent) -> void:
 	
 
 func _move() -> void:
-	if body.size() > 0:
+	if bodies.size() > 0:
 		# last block moves in last -1 block direction etc...
-		var i = body.size() -1
+		var i = bodies.size() -1
 		while i > 0:
-			body[i].move(body[i - 1].direction, wait_time)
+			bodies[i].move(bodies[i - 1].direction, wait_time)
 			i -= 1
 		
-		body[0].move(Global.direction, wait_time)
+		bodies[0].move(Global.direction, wait_time)
 	
 		# check buffer for new direction
 	if not direction_buffer.is_empty():
