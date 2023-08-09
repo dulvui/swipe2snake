@@ -25,3 +25,8 @@ func _on_apple_eaten() -> void:
 	snake.grow()
 
 
+
+
+func _on_snake_game_over() -> void:
+	timer.stop()
+	print("game over")

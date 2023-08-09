@@ -4,6 +4,8 @@
 
 extends Node2D
 
+signal colission
+
 const SIZE:int = 64
 
 var direction:int
@@ -40,4 +42,5 @@ func move(new_direction:int, time:float) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	if not wait_one_move:
+		emit_signal("colission")

@@ -4,6 +4,8 @@
 
 extends Node2D
 
+signal game_over
+
 const Body:PackedScene = preload("res://src/actors/snake/body/Body.tscn")
 
 
@@ -80,3 +82,7 @@ func _is_valid_direction(new_direction:int) -> bool:
 	if direction_buffer.size() == 0:
 		return abs(new_direction - Global.direction) > 1
 	return abs(new_direction - direction_buffer[-1]) > 1
+
+
+func _on_head_colission() -> void:
+	emit_signal("game_over")
