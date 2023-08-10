@@ -9,5 +9,6 @@ script = ExtResource("1_xp3uq")
 
 [node name="Head" parent="." instance=ExtResource("1_swcrd")]
 self_modulate = Color(0.32549, 0.0196078, 0.192157, 1)
+is_head = true
 
 [connection signal="colission" from="Head" to="." method="_on_head_colission"]

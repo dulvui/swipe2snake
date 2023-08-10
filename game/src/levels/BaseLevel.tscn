@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://lwahmc1ja651"]
+[gd_scene load_steps=6 format=3 uid="uid://lwahmc1ja651"]
 
 [ext_resource type="PackedScene" uid="uid://tqo1ou8bo1ev" path="res://src/background/Background.tscn" id="1_0ybin"]
 [ext_resource type="Script" path="res://src/levels/BaseLevel.gd" id="1_s4ewt"]
 [ext_resource type="PackedScene" uid="uid://d121pa8df4mov" path="res://src/actors/apple/Apple.tscn" id="2_a0ovu"]
 [ext_resource type="PackedScene" uid="uid://glbow07uipfj" path="res://src/actors/snake/Snake.tscn" id="3_wcuu4"]
+[ext_resource type="PackedScene" uid="uid://cfohb6oydcaw7" path="res://src/actors/block/Block.tscn" id="5_xmuau"]
 
 [node name="BaseLevel" type="Node"]
 script = ExtResource("1_s4ewt")
@@ -47,6 +48,9 @@ position = Vector2(384, 352)
 
 [node name="Snake" parent="Actors" instance=ExtResource("3_wcuu4")]
 position = Vector2(384, 448)
+
+[node name="Block" parent="Actors" instance=ExtResource("5_xmuau")]
+position = Vector2(256, 256)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

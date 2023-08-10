@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwwqnpyrv4m26" path="res://assets/images/block.png" id="2_pj7pd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4p3p"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [node name="Body" type="Node2D"]
 script = ExtResource("1_hffhh")
@@ -14,7 +14,9 @@ modulate = Color(0.345098, 0.509804, 0.980392, 1)
 texture = ExtResource("2_pj7pd")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 0
+collision_layer = 3
+collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_b4p3p")
