@@ -9,7 +9,6 @@ signal game_over
 const Body:PackedScene = preload("res://src/actors/snake/body/Body.tscn")
 
 
-@onready var timer = $Timer 
 @onready var head = $Head 
 
 
