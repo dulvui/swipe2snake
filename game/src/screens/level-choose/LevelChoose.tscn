@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcuy5jqfoge7x"]
+
+[ext_resource type="Script" path="res://src/screens/level-choose/LevelChoose.gd" id="1_10e4k"]
+[ext_resource type="PackedScene" uid="uid://tqo1ou8bo1ev" path="res://src/background/Background.tscn" id="2_w3ip0"]
+
+[node name="LevelChoose" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_10e4k")
+
+[node name="Background" parent="." instance=ExtResource("2_w3ip0")]
+layout_mode = 1

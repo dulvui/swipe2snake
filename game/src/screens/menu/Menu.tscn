@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0do6cw4grdsk"]
+
+[ext_resource type="Script" path="res://src/screens/menu/Menu.gd" id="1_r4aaw"]
+[ext_resource type="PackedScene" uid="uid://tqo1ou8bo1ev" path="res://src/background/Background.tscn" id="2_pyy1v"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4aaw")
+
+[node name="Background" parent="." instance=ExtResource("2_pyy1v")]
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TopBar" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/TopBar"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Settings" type="Button" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+text = "SETINGS"
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="Homepage" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "simondalvai.com"
+uri = "https://simondalvai.com"
+
+[node name="ExitDialog" type="ConfirmationDialog" parent="."]
+title = "Exit game?"
+initial_position = 1
+ok_button_text = "YES"
+cancel_button_text = "NO"
+
+[connection signal="pressed" from="VBoxContainer/TopBar/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="canceled" from="ExitDialog" to="." method="_on_exit_dialog_canceled"]
+[connection signal="confirmed" from="ExitDialog" to="." method="_on_exit_dialog_confirmed"]
