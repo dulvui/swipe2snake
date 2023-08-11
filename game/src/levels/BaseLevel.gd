@@ -18,13 +18,12 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	snake.update()
 
+
 func _on_apple_eaten() -> void:
 	points += 1
 	points_label.text = str(points)
 	
 	snake.grow()
-
-
 
 
 func _on_snake_game_over() -> void:

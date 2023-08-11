@@ -21,6 +21,7 @@ grow_vertical = 2
 layout_mode = 1
 
 [node name="Points" type="Label" parent="UI"]
+z_index = 1
 layout_mode = 0
 offset_top = 64.0
 offset_right = 544.0

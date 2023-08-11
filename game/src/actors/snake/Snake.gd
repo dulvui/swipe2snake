@@ -8,17 +8,15 @@ signal game_over
 
 const Body:PackedScene = preload("res://src/actors/snake/body/Body.tscn")
 
-
 @onready var head = $Head 
 
-
 var direction_buffer:Array = []
-
 var is_growing = false
-
 var bodies:Array = []
-
 var wait_time:float = 0
+
+func _ready() -> void:
+	bodies.append(head)
 
 func update() -> void:
 	if is_growing:
@@ -49,19 +47,14 @@ func _input(event: InputEvent) -> void:
 func _move() -> void:
 	if bodies.size() > 0:
 		# last block moves in last -1 block direction etc...
-		var i = bodies.size() -1
-		while i > 0:
+		for i in range(bodies.size() -1, 0, -1):
 			bodies[i].move(bodies[i - 1].direction, wait_time)
-			i -= 1
 		
-		bodies[0].move(Global.direction, wait_time)
-	
-		# check buffer for new direction
+	# check buffer for new direction
 	if not direction_buffer.is_empty():
 		Global.direction = direction_buffer.pop_front()
 	
 	head.move(Global.direction, wait_time)
-
 
 
 func _add_to_buffer(new_direction:int) -> void:
