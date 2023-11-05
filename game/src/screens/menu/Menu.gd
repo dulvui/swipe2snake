@@ -26,3 +26,7 @@ func _notification(what) -> void:
 
 func _on_exit_dialog_canceled() -> void:
 	exit_dialog.hide()
+
+
+func _on_homepage_pressed():
+	OS.shell_open("https://simondalvai.org")

@@ -45,10 +45,9 @@ text = "SETINGS"
 layout_mode = 2
 text = "PLAY"
 
-[node name="Homepage" type="LinkButton" parent="VBoxContainer"]
+[node name="Homepage" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "simondalvai.com"
-uri = "https://simondalvai.com"
+text = "simondalvai.org"
 
 [node name="ExitDialog" type="ConfirmationDialog" parent="."]
 title = "Exit game?"
@@ -58,5 +57,6 @@ cancel_button_text = "NO"
 
 [connection signal="pressed" from="VBoxContainer/TopBar/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Homepage" to="." method="_on_homepage_pressed"]
 [connection signal="canceled" from="ExitDialog" to="." method="_on_exit_dialog_canceled"]
 [connection signal="confirmed" from="ExitDialog" to="." method="_on_exit_dialog_confirmed"]
