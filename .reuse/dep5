@@ -8,7 +8,7 @@ Source: https://github.com/dulvui/swipe2snake
 ####################################
 
 # Godot files
-Files: game/src/**.tscn game/project.godot game/**.import
+Files: game/src/**.tscn game/project.godot game/**.import game/snake_theme.tres
 Copyright: 2023 Simon Dalvai <info@simondalvai.com>
 License: AGPL-3.0-or-later
 
@@ -19,6 +19,11 @@ License: CC-BY-SA-4.0
 
 # config files
 Files: version-android version-ios
+Copyright: 2023 Simon Dalvai <info@simondalvai.com>
+License: CC0-1.0
+
+# level files
+Files: game/levels/*
 Copyright: 2023 Simon Dalvai <info@simondalvai.com>
 License: CC0-1.0
 
