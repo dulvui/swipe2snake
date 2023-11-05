@@ -11,9 +11,26 @@ extends Node
 
 var points:int = 0
 
+var width:int
+var height:int
+
+
 func _ready() -> void:
 	snake.wait_time = timer.wait_time
 
+
+func load_level(level:Dictionary) -> void:
+	height = level.blocksPositions.size()
+	width = level.blocksPositions[0].size()
+	
+	for objects in level.blocksPositions:
+		for object in objects:
+			if object == 1:
+				# block
+				pass
+			elif object == 2:
+				#snake head
+				pass
 
 func _on_timer_timeout() -> void:
 	snake.update()
